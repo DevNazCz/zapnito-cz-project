@@ -92,7 +92,40 @@
               <p style="font-size: 14px; margin-bottom: 15px">
                 • Škálovatelný systém
               </p>
-              <a href="#" class="btn-link">Více informací →</a>
+              <button
+                class="btn-link open-modal"
+                data-content="
+<h2>SolaX X4 Hybrid</h2>
+<p>Chytrý hybridní střídač pro maximální využití vlastní energie
+
+SolaX X4 Hybrid je moderní třífázový hybridní střídač, který umožňuje kombinovat výrobu elektřiny ze solárních panelů, ukládání energie do baterií a chytré řízení spotřeby domácnosti nebo firmy.
+
+Hlavní výhody pro zákazníka
+
+⚡ Maximální využití vlastní elektřiny
+Vyrobenou energii nejdříve spotřebujete doma, přebytek se ukládá do baterie nebo odesílá do sítě.
+
+🔋 Připraveno pro baterie
+Možnost připojení bateriového úložiště hned nebo kdykoliv v budoucnu.
+
+🏡 Záložní napájení při výpadku elektřiny
+Vybrané okruhy domu mohou fungovat i během výpadku distribuční sítě.
+
+📱 Chytré řízení a monitoring
+Přehledná mobilní aplikace umožňuje sledovat výrobu, spotřebu i stav baterie v reálném čase.
+
+⚙️ Vysoký výkon a flexibilita
+Vhodné pro rodinné domy i menší firmy, možnost připojení většího počtu panelů díky více MPPT vstupům.
+
+Pro koho je vhodný
+-Rodinné domy
+-Nové instalace s baterií
+-Domácnosti plánující rozšíření v budoucnu
+-Zákazníci požadující zálohování při výpadku</p>
+"
+              >
+                Více informací →
+              </button>
             </div>
           </div>
 
@@ -117,7 +150,40 @@
               <p style="font-size: 14px; margin-bottom: 15px">
                 • Pokročilý monitoring
               </p>
-              <a href="#" class="btn-link">Více informací →</a>
+              <button
+                class="btn-link open-modal"
+                data-content="
+<h2>GoodWe ET G2</h2>
+<p>Výkonný hybridní střídač pro náročné domácnosti a firmy
+
+GoodWe ET G2 představuje špičkový třífázový hybridní střídač nové generace, který nabízí vysoký výkon, pokročilé řízení energie a vynikající kompatibilitu s bateriovými systémy.
+
+Hlavní výhody pro zákazníka
+
+⚡ Velmi vysoká účinnost a výkon
+Maximalizuje výrobu elektrické energie ze solárních panelů.
+
+🔋 Pokročilé bateriové řešení
+Efektivní ukládání energie s možností velké kapacity baterie.
+
+🏢 Ideální i pro větší instalace
+Vhodné pro větší rodinné domy, firmy nebo objekty s vyšší spotřebou.
+
+🔌 Rychlé přepnutí při výpadku proudu
+Zajišťuje stabilní záložní napájení důležitých spotřebičů.
+
+📊 Pokročilý energetický management
+Chytré řízení spotřeby, možnost optimalizace podle tarifů nebo spotřeby.
+
+Pro koho je vhodný
+-Větší rodinné domy
+-Firmy a komerční objekty
+-Zákazníci s vyšší spotřebou elektřiny
+-Instalace s větší baterií</p>
+"
+              >
+                Více informací →
+              </button>
             </div>
           </div>
 
@@ -146,11 +212,75 @@
               <p style="font-size: 14px; margin-bottom: 15px">
                 • N-type články
               </p>
-              <a href="#" class="btn-link">Více informací →</a>
+              <button
+                class="btn-link open-modal"
+                data-content="
+<h2>AIKO Neostar</h2>
+<p>Vysoce účinné solární panely nové generace
+
+AIKO Neostar jsou prémiové solární panely s nejmodernější technologií článků, které poskytují velmi vysoký výkon i na omezené střešní ploše.
+
+Hlavní výhody pro zákazníka
+
+☀️ Maximální výkon na menší ploše
+Vyšší účinnost znamená více energie z menší střechy.
+
+📈 Vysoký výkon i při horším počasí
+Panely pracují efektivně i při difúzním světle nebo vyšších teplotách.
+
+🛡️ Dlouhá životnost a záruka
+Stabilní výkon po mnoho let s minimálním poklesem výkonu.
+
+🏡 Moderní design
+Elegantní celočerné provedení vhodné pro moderní i klasické střechy.
+
+🔧 Spolehlivá technologie nové generace
+Nižší degradace panelů a vyšší dlouhodobá návratnost investice.
+
+Pro koho jsou vhodné
+Zákazníci s menší střechou
+Náročnější zákazníci na výkon
+Moderní novostavby
+Prémiové instalace</p>
+"
+              >
+                Více informací →
+              </button>
             </div>
           </div>
         </div>
       </section>
     </main>
+    <!-- MODAL -->
+    <div class="modal" id="infoModal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div id="modalText"></div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("infoModal");
+        const modalText = document.getElementById("modalText");
+        const closeBtn = document.querySelector(".modal-close");
+
+        document.querySelectorAll(".open-modal").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            modalText.innerHTML = this.dataset.content;
+            modal.classList.add("active");
+          });
+        });
+
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove("active");
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.classList.remove("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
